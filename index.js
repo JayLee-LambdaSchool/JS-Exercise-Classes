@@ -149,7 +149,7 @@ class Instructor extends Lambdasian {
     return `Today we are learning about ${subject}`;
   }
 
-  grade(student) {
+  grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
 }
@@ -176,7 +176,7 @@ class Student extends Lambdasian {
     this.favSubjects = studentInfo.favSubjects;
   }
 
-  listSubjects(favSubjects) {
+  listSubjects() {
     return this.favSubjects;
   }
 
