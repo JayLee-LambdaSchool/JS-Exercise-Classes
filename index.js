@@ -44,7 +44,7 @@ class Person {
   constructor(name, age) {
     this.name = name;
     this.age = age;
-    this.stomach = [];
+    this.stomach = []
   }
 
   eat(someFood) {
@@ -137,10 +137,22 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor(school) {
+    super(school);
+    this.specialty = school.specialty;
+    this.favLanguage = school.favLanguage;
+    this.catchPhrase = school.catchPhrase;
+  }
 
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+
+  grade(student) {
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
 }
-
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -156,8 +168,25 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(studentInfo) {
+    super(studentInfo);
+    this.previousBackground = studentInfo.previousBackground;
+    this.className = studentInfo.className;
+    this.favSubjects = studentInfo.favSubjects;
+  }
 
+  listSubjects(favSubjects) {
+    return this.favSubjects;
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR Assignment for ${subject}`;
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
 }
 
 /*
@@ -173,8 +202,20 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(mangInfo) {
+    super(mangInfo);
+    this.gradClassName = mangInfo.gradClassName;
+    this.favInstructor = mangInfo.favInstructor
+  }
 
+  standUp(slackChannel) {
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
+  }
+
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
 }
 
 /*
